@@ -10,7 +10,7 @@ const { validaterUser,validaterParams } = require('./middleware/Validaters');
 const app = express();
 app.use(bodyParser.json());
 app.use(cors())
-const PORT=3000;
+const PORT = process.env.PORT || 3000;
 
 app.get('/', (req,res) =>{
   res.status(200).send('Oi to funcionando')
