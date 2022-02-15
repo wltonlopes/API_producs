@@ -10,11 +10,11 @@ const { validaterUser,validaterParams } = require('./middleware/Validaters');
 const app = express();
 app.use(bodyParser.json());
 app.use(cors())
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
-// app.get('/', (req,res) =>{
-//   res.status(200).send('Oi to funcionando')
-// });
+app.get('/', (req,res) =>{
+  res.status(200).send('Oi to funcionando')
+});
 app.get('/products', ProductsController.getAll);
 app.get('/products/:id', validaterParams, ProductsController.getById);
 app.post('/products', ProductsController.create);
